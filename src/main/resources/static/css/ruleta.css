@@ -1,0 +1,103 @@
+@CHARSET "ISO-8859-1";
+
+table{
+	background-color:#21800A;
+	color: #fff;
+	border-collapse: separate;
+	border: white 2px solid
+}
+
+.bet{
+	position: absolute;
+}
+
+td,tr{
+	border-collapse: separate;
+	border: white 2px solid
+}
+
+.dash-segment:nth-child(1)
+{
+	position: relative !important;
+	width: 200px !important;
+	left: -60px;
+	-webkit-transition: left 0.5s ease-out;
+	-moz-transition: left 0.5s ease-out;
+	-o-transition: left 0.5s ease-out;
+}
+
+.dash-segment:nth-child(3),
+.dash-segment:nth-child(4)
+{
+	position: relative !important;
+	left: -400px;
+	-webkit-transition: left 0.5s ease-out;
+	-moz-transition: left 0.5s ease-out;
+	-o-transition: left 0.5s ease-out;
+}
+.dash-segment:nth-child(1):hover,
+.dash-segment:nth-child(2):hover,
+.dash-segment:nth-child(3):hover,
+.dash-segment:nth-child(4):hover
+{
+	position: relative !important;
+	left: 120px;
+	-webkit-transition: left 0.5s ease-out;
+	-moz-transition: left 0.5s ease-out;
+	-o-transition: left 0.5s ease-out;
+}
+
+.segment-content {
+	width:600px;
+	font-size: 0.9em;
+	color: white !important;
+	padding: 3px 10px !important;
+	margin: 2px;
+	background-color: rgba(150,150,150,0.8);
+	-moz-box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.5);
+	box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.5);
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.segment-content h2 {
+	position: relative !important;
+	left: 500px;
+	color: #DDD !important;
+	background: none !important;
+	font-size: 1.3em !important;
+	font-weight: bold;
+	text-shadow: 0px 0px 5px black;
+}
+#dash-help {
+	height: 55px;
+	-webkit-transition: height 0.5s ease-out 0.5s;
+	-moz-transition: height 0.5s ease-out 0.5s;
+	-o-transition: height 0.5s ease-out 0.5s;
+	overflow: hidden !important;
+}
+#dash-help:hover {
+	height: 600px !important;
+	-webkit-transition: height 0.5s ease-out 0.5s;
+	-moz-transition: height 0.5s ease-out 0.5s;
+	-o-transition: height 0.5s ease-out 0.5s;
+}
+
+#game{
+	border-collapse:collapse;
+	width:400px;
+	height:500px;
+	position:absolute;
+	top:25px;
+	left:800px;
+	text-align:center;
+	border-color:#999;
+	}
+
+tr, td {
+	text-align:center;
+	font-family:Arial;
+	text-shadow: 0px 0px 10px rgba(255,255,255,0.8);
+}

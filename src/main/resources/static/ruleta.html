@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ruleta</title>
+   <!--Made with love by Mutiullah Samim -->
+   
+	<!--Bootsrap 4 CDN-->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+    <!--Fontawesome CDN-->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+	<!--Custom styles-->
+	<link rel="stylesheet" type="text/css" href="css/general.css">
+	<link rel="stylesheet" type="text/css" href="css/ruleta.css">
+	
+</head>
+<body>
+<div class="container">
+	<button type="button" onclick="volver()" class="btn btn-warning">Volver</button>
+	<h1 class="text-center mt-4" style="color:white;"></h1>	
+	<canvas id="wheelcanvas" width="500" height="500"></canvas>
+	<input type="button" value="Girar" class="btn btn-success color-white" onclick="spin();" style="float: left;">
+	<div class="col-12 col-sm-12 col-md-12" style="background-color:#21800A;;color:white;height:100px;">
+		<div class="form-check col-sm-2 " style="float:left">
+		  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="1" checked>
+		  <img src="img/1.png" style="width:100px;height:100px;"></img>
+		  <label class="form-check-label" for="exampleRadios1" style="color:white;">
+		    1
+		  </label>
+		</div>
+		<div class="form-check col-sm-2" style="float:left">
+		  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="5" >
+		  <label class="form-check-label" for="exampleRadios2" style="color:white;">
+		    5
+		  </label>
+		  <img src="img/5.png" style="width:100px;height:100px;"></img>
+		</div>
+		<div class="form-check col-sm-2" style="float:left">
+		  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="25" >
+		  <label class="form-check-label" for="exampleRadios3" style="color:white;">
+		  	25
+		  </label>
+		  <img src="img/25.png" style="width:100px;height:100px;"></img>
+		</div>
+		<div class="form-check col-sm-2" style="float:left">
+		  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios4" value="100" >
+		  <label class="form-check-label" for="exampleRadios4" style="color:white;">
+		  	100
+		  </label>
+		  <img src="img/100.png" style="width:100px;height:100px;"></img>
+		</div>
+		<div class="form-check col-sm-2" style="float:left">
+		  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios5" value="500" >
+		  <label class="form-check-label" for="exampleRadios5" style="color:white;">
+		  	500
+		  </label>
+		  <img src="img/500.png" style="width:100px;height:100px;"></img>
+		</div>
+		<div class="form-check col-sm-2" style="float:left">
+		  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios6" value="1000" >
+		  <label class="form-check-label" for="exampleRadios6" style="color:white;">
+		  	1000
+		  </label>
+		  <img src="img/1000.jpg" style="width:100px;height:100px;"></img>
+		</div>
+	</div>
+	<div id="game">
+		<table bgcolor="white" width="400" height="500">
+			<tr>
+				<td id=0 class="pointer" onclick="putmoney(0)" colspan="1">0</td>
+				<td id=00 class="pointer" onclick="putmoney(00)" colspan="2">00</td>
+			</tr>
+			<tr>
+				<td id=1 class="pointer" onclick="putmoney(1)" style="background-color:#EE2828">1</td>
+				<td id=2 class="pointer" onclick="putmoney(2)" style="background-color:#000">2</td>
+				<td id=3 class="pointer" onclick="putmoney(3)" style="background-color:#EE2828">3</td>
+				<td id=40 class="pointer" onclick="putmoney(40)" rowspan = "4">1st 12</td>
+				<td id=43 class="pointer" onclick="putmoney(43)" rowspan = "2">1 to 18</td>
+			</tr>
+			<tr>
+				<td id=4 class="pointer" onclick="putmoney(4)" style="background-color:#000">4</td>
+				<td id=5 class="pointer" style="background-color:#EE2828" onclick="putmoney(5)">5</td>
+				<td id=6 class="pointer" onclick="putmoney(6)" style="background-color:#000">6</td>
+			</tr>
+			<tr>
+				<td id=7 class="pointer" style="background-color:#EE2828" onclick="putmoney(7)">7</td>
+				<td id=8 class="pointer" onclick="putmoney(8)" style="background-color:#000">8</td>
+				<td id=9 class="pointer" style="background-color:#EE2828" onclick="putmoney(9)">9</td>
+				<td id=46 class="pointer" onclick="putmoney(46)" rowspan = "2">EVEN</td>
+			</tr>
+			<tr>
+				<td id=10 class="pointer" onclick="putmoney(10)" style="background-color:#000">10</td>
+				<td id=11 class="pointer" onclick="putmoney(11)" style="background-color:#000">11</td>
+				<td id=12 class="pointer" onclick="putmoney(12)" style="background-color:#EE2828">12</td>
+			</tr>
+			<tr>
+				<td id=13 class="pointer" onclick="putmoney(13)" style="background-color:#000">13</td>
+				<td id=14 class="pointer" onclick="putmoney(14)" style="background-color:#EE2828">14</td>
+				<td id=15 class="pointer" onclick="putmoney(15)" style="background-color:#000">15</td>
+				<td id=41 class="pointer" onclick="putmoney(41)" rowspan = "4">2nd 12</td>
+				<td id=47 class="pointer" onclick="putmoney(47)" style="background-color:#EE2828" rowspan = "2">RED</td>
+			</tr>
+			<tr>
+				<td id=16 class="pointer" onclick="putmoney(16)" style="background-color:#EE2828">16</td>
+				<td id=17 class="pointer" onclick="putmoney(17)" style="background-color:#000">17</td>
+				<td id=18 class="pointer" onclick="putmoney(18)" style="background-color:#EE2828">18</td>
+			</tr>
+			<tr>
+				<td id=19 class="pointer" onclick="putmoney(19)" style="background-color:#EE2828">19</td>
+				<td id=20 class="pointer" onclick="putmoney(20)" style="background-color:#000">20</td>
+				<td id=21 class="pointer" onclick="putmoney(21)" style="background-color:#EE2828">21</td>
+				<td id=48 class="pointer" onclick="putmoney(48)" style="background-color:#000" rowspan = "2">BLACK</td>
+			</tr>
+			<tr>
+				<td id=22 class="pointer" onclick="putmoney(22)" style="background-color:#000">22</td>
+				<td id=23 class="pointer" onclick="putmoney(23)" style="background-color:#EE2828">23</td>
+				<td id=24 class="pointer" onclick="putmoney(24)" style="background-color:#000">24</td>
+			</tr>
+			<tr>
+				<td id=25 class="pointer" onclick="putmoney(25)" style="background-color:#EE2828">25</td>
+				<td id=26 class="pointer" onclick="putmoney(26)" style="background-color:#000">26</td>
+				<td id=27 class="pointer" onclick="putmoney(27)" style="background-color:#EE2828">27</td>
+				<td id=42 class="pointer" onclick="putmoney(42)" rowspan = "4">3rd 12</td>
+				<td id=45 class="pointer" onclick="putmoney(45)" rowspan = "2">ODD</td>
+			</tr>
+			<tr>
+				<td id=28 class="pointer" onclick="putmoney(28)" style="background-color:#000">28</td>
+				<td id=29 class="pointer" onclick="putmoney(29)" style="background-color:#000">29</td>
+				<td id=30 class="pointer" onclick="putmoney(30)" style="background-color:#EE2828">30</td>
+			</tr>
+			<tr>
+				<td id=31 class="pointer" onclick="putmoney(31)" style="background-color:#000">31</td>
+				<td id=32 class="pointer" onclick="putmoney(32)" style="background-color:#EE2828">32</td>
+				<td id=33 class="pointer" onclick="putmoney(33)" style="background-color:#000">33</td>
+				<td id=44 class="pointer" onclick="putmoney(44)" rowspan = "2">19 to 36</td>
+			</tr>
+			<tr>
+				<td id=34 class="pointer" onclick="putmoney(34)" style="background-color:#EE2828">34</td>
+				<td id=35 class="pointer" onclick="putmoney(35)" style="background-color:#000">35</td>
+				<td id=36 class="pointer" onclick="putmoney(36)" style="background-color:#EE2828">36</td>
+			</tr>
+			<tr>
+				<td id=37 class="pointer" onclick="putmoney(37)">2 to 1</td>
+				<td id=38 class="pointer" onclick="putmoney(38)">2 to 1</td>
+				<td id=39 class="pointer" onclick="putmoney(39)">2 to 1</td>
+				<td id="money" colspan = "2"></td>
+			</tr>
+		<table>
+	</div>
+	
+</div>
+</body>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="js/ruleta.js"></script>
+</html>
